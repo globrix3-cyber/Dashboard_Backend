@@ -21,10 +21,11 @@ function hashToken(token) {
   return crypto.createHash('sha256').update(token).digest('hex');
 }
 
-async function register({ email, password, phone_number, preferred_language, role }) {
+async function register({ email, password, phone_number, preferred_language, role, name, full_name, company }) {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
+    const resolvedName = full_name || name || null;
 
     const existing = await client.query(
       `SELECT id FROM users WHERE email = $1`, [email]
@@ -56,11 +57,24 @@ async function register({ email, password, phone_number, preferred_language, rol
     const password_hash = await bcrypt.hash(password, SALT_ROUNDS);
 
     const { rows: userRows } = await client.query(
-      `INSERT INTO users (email, password_hash, phone_number, preferred_language, role_id)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING id, email`,
-      [email, password_hash, phone_number || null, preferred_language || 'en', roleRows[0].id]
+      `INSERT INTO users (email, password_hash, phone_number, preferred_language, role_id, full_name)
+       VALUES ($1, $2, $3, $4, $5, $6)
+       RETURNING id, email, full_name`,
+      [email, password_hash, phone_number || null, preferred_language || 'en', roleRows[0].id, resolvedName]
     );
+
+    // Auto-create company if name provided
+    if (company) {
+      const { rows: [co] } = await client.query(
+        `INSERT INTO companies (legal_name, is_buyer, is_supplier, country)
+         VALUES ($1, $2, $3, 'IN') RETURNING id`,
+        [company, role === 'buyer', role === 'supplier']
+      );
+      await client.query(
+        `INSERT INTO company_users (user_id, company_id) VALUES ($1, $2)`,
+        [userRows[0].id, co.id]
+      );
+    }
 
     await client.query('COMMIT');
 
@@ -109,9 +123,9 @@ async function login({ email, password, device_info, ip_address }) {
     expires_at,
   });
 
-  // Get role name
+  // Get role + full_name
   const { rows } = await pool.query(
-    `SELECT r.name AS role
+    `SELECT r.name AS role, u.full_name
      FROM users u
      LEFT JOIN roles r ON r.id = u.role_id
      WHERE u.id = $1`,
@@ -119,14 +133,13 @@ async function login({ email, password, device_info, ip_address }) {
   );
 
   return {
-    token:         accessToken,           // ← Changed from access_token to token
+    token:         accessToken,
     refresh_token: refreshToken,
     user: {
       id:    user.id,
       email: user.email,
-      role:  rows[0]?.role || null,
-      // You can add name here later when you add name column to users table
-      // name: user.name || user.email.split('@')[0],
+      role:  rows[0]?.role  || null,
+      name:  rows[0]?.full_name || user.email.split('@')[0],
     },
   };
 }

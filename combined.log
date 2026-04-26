@@ -4092,3 +4092,2439 @@ META: {
 2026-04-13 18:58:24 [INFO] Redis connected
 2026-04-13 18:58:24 [INFO] Redis connection successful: Redis works!
 2026-04-13 18:58:24 [INFO] Server running on port 8000
+2026-04-25 18:44:00 [INFO] Database connection successful: {
+  "now": "2026-04-25T13:14:00.514Z"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:02 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:02 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:02 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:03 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:03 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:04 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:04 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:05 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:05 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:06 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:06 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:07 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:07 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:08 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:08 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:09 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:09 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:10 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:10 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:11 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:11 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:12 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:12 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:13 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:13 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:14 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:14 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:15 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:15 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:16 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:16 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:26 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:26 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:28 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:28 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:36 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:44 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:44 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:48 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:48 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:49 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:49 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:50 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:50 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:51 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:51 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:52 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:52 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:53 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:53 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:54 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:54 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:55 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:55 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:56 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-25 18:44:56 [INFO] Redis connected
+2026-04-25 18:44:56 [INFO] Redis connection successful: Redis works!
+2026-04-25 18:44:56 [INFO] Server running on port 8000
+2026-04-25 18:50:09 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:09 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:50:09 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:09 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:50:19 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:19 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:24 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:24 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:50:24 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:50:24 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:51:17 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 18:51:17 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 18:51:21 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 18:51:22 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 18:52:14 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:52:14 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:52:16 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:52:16 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:52:27 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:52:27 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 18:57:49 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:57:49 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:57:49 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:57:50 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:58:01 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:58:02 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:58:02 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:58:02 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 18:58:49 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 18:58:50 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 19:01:28 [ERROR] Error: Invalid credentials
+    at Object.login (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\services\authService.js:97:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\auth.js:29:22
+2026-04-25 19:02:56 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 19:02:56 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:19:18
+2026-04-25 21:03:42 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:33:42.414Z"
+}
+2026-04-25 21:03:43 [INFO] Redis connected
+2026-04-25 21:03:43 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:03:43 [INFO] Server running on port 8000
+2026-04-25 21:04:01 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:34:01.002Z"
+}
+2026-04-25 21:04:01 [INFO] Redis connected
+2026-04-25 21:04:01 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:04:01 [INFO] Server running on port 8000
+2026-04-25 21:04:24 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:34:24.337Z"
+}
+2026-04-25 21:04:25 [INFO] Redis connected
+2026-04-25 21:04:25 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:04:25 [INFO] Server running on port 8000
+2026-04-25 21:04:47 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:34:47.490Z"
+}
+2026-04-25 21:04:48 [INFO] Redis connected
+2026-04-25 21:04:48 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:04:48 [INFO] Server running on port 8000
+2026-04-25 21:05:47 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:35:47.177Z"
+}
+2026-04-25 21:05:47 [INFO] Redis connected
+2026-04-25 21:05:47 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:05:47 [INFO] Server running on port 8000
+2026-04-25 21:05:55 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:35:54.879Z"
+}
+2026-04-25 21:05:55 [INFO] Redis connected
+2026-04-25 21:05:55 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:05:55 [INFO] Server running on port 8000
+2026-04-25 21:06:04 [INFO] Database connection successful: {
+  "now": "2026-04-25T15:36:04.187Z"
+}
+2026-04-25 21:06:04 [INFO] Redis connected
+2026-04-25 21:06:04 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:06:04 [INFO] Server running on port 8000
+2026-04-25 21:45:39 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:45:39 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:45:41 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 21:45:41 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 21:45:44 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:45:44 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:45:52 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 21:45:52 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-25 21:45:54 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:45:54 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:46:05 [INFO] Database connection successful: {
+  "now": "2026-04-25T16:16:05.282Z"
+}
+2026-04-25 21:46:05 [INFO] Redis connected
+2026-04-25 21:46:05 [INFO] Redis connection successful: Redis works!
+2026-04-25 21:46:05 [INFO] Server running on port 8000
+2026-04-25 21:46:10 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:46:10 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:47:05 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:29:18
+2026-04-25 21:47:05 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\rfqs.js:29:18
+2026-04-25 21:47:11 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:47:11 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:47:31 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:47:31 [ERROR] Error: No company linked
+    at getCompany (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:9:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:37:16
+2026-04-25 21:49:18 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 21:49:18 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:18 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:18 [ERROR] error: column "total_amount" does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 3)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:154:49
+2026-04-25 21:49:23 [ERROR] error: column m.message_type does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:21:24
+2026-04-25 21:49:23 [ERROR] error: column m.message_type does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\messages.js:21:24
+2026-04-25 21:49:24 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:24 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:27 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:27 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:29 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-25 21:49:30 [ERROR] error: column crn.registration_number does not exist
+    at C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\admin.js:105:22
+2026-04-26 10:41:17 [INFO] Database connection successful: {
+  "now": "2026-04-26T05:11:16.244Z"
+}
+2026-04-26 10:41:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:26 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:26 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:28 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:36 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:36 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:44 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:44 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:48 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:49 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:49 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:50 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:50 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:51 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:51 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:52 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:52 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:53 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:53 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:54 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:54 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:55 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:55 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:56 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:56 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:57 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:57 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:58 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:58 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:59 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:41:59 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:00 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:00 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:01 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:02 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:02 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:03 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:03 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:04 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:04 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:05 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:05 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:06 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:06 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:07 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:07 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:08 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:09 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:09 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:10 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:10 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:11 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:11 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:12 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:12 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:13 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:13 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:14 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:14 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:15 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:15 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:16 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:16 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:17 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:18 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:19 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:20 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:21 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:22 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:23 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:24 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:25 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:26 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:27 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:28 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:28 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:29 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:30 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:31 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:32 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:33 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:34 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:35 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:36 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:36 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:37 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:38 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:39 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:40 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:41 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:42 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:43 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:44 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:45 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:46 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:47 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:48 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:48 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:49 [ERROR] Redis error:
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+{
+  "code": "ECONNREFUSED"
+}
+2026-04-26 10:42:49 [INFO] Redis connected
+2026-04-26 10:42:49 [INFO] Redis connection successful: Redis works!
+2026-04-26 10:42:49 [INFO] Server running on port 8000
+2026-04-26 10:45:29 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-26 10:45:29 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-26 10:45:35 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22
+2026-04-26 10:45:35 [ERROR] Error: No company linked to this account
+    at getCompanyId (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:12:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.findAll (C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\models\product.js:26:23)
+    at async C:\Users\Rahul\Downloads\b2b-backend\b2b-backend\routes\products.js:83:22

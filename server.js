@@ -6,11 +6,18 @@ const cors         = require('cors');
 const cookieParser = require('cookie-parser');
 const { Server }   = require('socket.io');
 
-const authRoutes        = require('./routes/auth');
-const usersRoutes       = require('./routes/users');
-const companiesRoutes   = require('./routes/companies');
-const permissionsRoutes = require('./routes/permissions');
-const productsRoutes    = require('./routes/products');   // ← Added
+const authRoutes          = require('./routes/auth');
+const usersRoutes         = require('./routes/users');
+const companiesRoutes     = require('./routes/companies');
+const permissionsRoutes   = require('./routes/permissions');
+const productsRoutes      = require('./routes/products');
+const rfqsRoutes          = require('./routes/rfqs');
+const quotesRoutes        = require('./routes/quotes');
+const ordersRoutes        = require('./routes/orders');
+const statsRoutes         = require('./routes/stats');
+const notificationsRoutes = require('./routes/notifications');
+const adminRoutes         = require('./routes/admin');
+const messagesRoutes      = require('./routes/messages');
 
 const limiter      = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/error');
@@ -76,11 +83,18 @@ app.get('/', (req, res) => {
 });
 
 // ==================== ROUTES ====================
-app.use('/api/auth',        authRoutes);
-app.use('/api/users',       usersRoutes);
-app.use('/api/companies',   companiesRoutes);
-app.use('/api/permissions', permissionsRoutes);
-app.use('/api/products',    productsRoutes);   // ← Added here
+app.use('/api/auth',          authRoutes);
+app.use('/api/users',         usersRoutes);
+app.use('/api/companies',     companiesRoutes);
+app.use('/api/permissions',   permissionsRoutes);
+app.use('/api/products',      productsRoutes);
+app.use('/api/rfqs',          rfqsRoutes);
+app.use('/api/quotes',        quotesRoutes);
+app.use('/api/orders',        ordersRoutes);
+app.use('/api/stats',         statsRoutes);
+app.use('/api/notifications', notificationsRoutes);
+app.use('/api/admin',         adminRoutes);
+app.use('/api',               messagesRoutes);
 
 // ==================== ERROR HANDLER ====================
 app.use(errorHandler);

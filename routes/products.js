@@ -80,9 +80,9 @@ router.post(
 // GET /api/products
 router.get('/', authenticate, async (req, res, next) => {
   try {
-    const products = await productModel.findAll({ 
-      userId: req.user?.id, 
-      role: req.user?.role 
+    const products = await productModel.findAll({
+      userId: req.user?.user_id,
+      role:   req.user?.role,
     });
     res.json({ message: 'Products fetched', data: products || [] });
   } catch (err) { 
