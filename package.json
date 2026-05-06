@@ -1,12 +1,14 @@
 {
   "name": "b2b-export-marketplace",
   "version": "1.0.0",
-  "description": "B2B Export Marketplace Backend API",
+  "description": "Globrixa B2B Export Marketplace — Backend API",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "migrate": "node scripts/migrate.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

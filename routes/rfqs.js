@@ -122,7 +122,7 @@ router.get('/:id', authenticateToken, async (req, res, next) => {
     if (!rfq) return res.status(404).json({ error: 'RFQ not found', code: 'NOT_FOUND' });
 
     const { rows: quotes } = await pool.query(
-      `SELECT rr.id, rr.quoted_price AS price_per_unit, rr.currency,
+      `SELECT rr.id, rr.supplier_company_id, rr.quoted_price AS price_per_unit, rr.currency,
               rr.delivery_time_days, rr.min_order_quantity, rr.validity_days,
               rr.message AS notes, rr.status, rr.created_at,
               cs.legal_name AS supplier_name, cs.city AS supplier_city

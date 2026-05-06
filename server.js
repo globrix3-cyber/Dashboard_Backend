@@ -18,6 +18,7 @@ const statsRoutes         = require('./routes/stats');
 const notificationsRoutes = require('./routes/notifications');
 const adminRoutes         = require('./routes/admin');
 const messagesRoutes      = require('./routes/messages');
+const contractsRoutes     = require('./routes/contracts');
 
 const limiter      = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/error');
@@ -28,10 +29,15 @@ require('dotenv').config();
 const app    = express();
 const server = http.createServer(app);
 
+const ALLOWED_ORIGINS = [
+  process.env.FRONTEND_URL,
+  'http://localhost:5173',
+].filter(Boolean);
+
 const io = new Server(server, {
   cors: {
-    origin:  process.env.FRONTEND_URL || 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    origin:      ALLOWED_ORIGINS,
+    methods:     ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,
   },
   path: '/socket.io',
@@ -59,7 +65,7 @@ async function initializeServer() {
 // ==================== MIDDLEWARE ====================
 app.use(helmet());
 app.use(cors({
-  origin:      process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin:      ALLOWED_ORIGINS,
   credentials: true,
 }));
 app.use(cookieParser());
@@ -95,6 +101,7 @@ app.use('/api/stats',         statsRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/admin',         adminRoutes);
 app.use('/api',               messagesRoutes);
+app.use('/api/contracts',     contractsRoutes);
 
 // ==================== ERROR HANDLER ====================
 app.use(errorHandler);

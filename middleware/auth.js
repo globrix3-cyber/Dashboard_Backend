@@ -1,5 +1,6 @@
-const jwt  = require('jsonwebtoken');
-const pool = require('../config/db');
+const jwt    = require('jsonwebtoken');
+const pool   = require('../config/db');
+const logger = require('../utils/logger');
 
 const authenticateToken = async (req, res, next) => {
   try {
@@ -47,7 +48,7 @@ const authenticateToken = async (req, res, next) => {
 
     next();
   } catch (err) {
-    console.error('authenticateToken error:', err?.message);
+    logger.warn('authenticateToken failed', { message: err?.message });
     return res.status(403).json({ error: 'Invalid token', code: 'AUTH_INVALID_TOKEN' });
   }
 };
@@ -73,7 +74,7 @@ const checkPermission = (module, action) => {
 
       return res.status(403).json({ error: 'Permission denied', code: 'PERM_DENIED' });
     } catch (err) {
-      console.error('checkPermission error:', err?.message);
+      logger.error('checkPermission error', { message: err?.message });
       return res.status(500).json({ error: 'Permission check failed', code: 'PERM_CHECK_FAILED' });
     }
   };
