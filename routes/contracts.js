@@ -306,7 +306,7 @@ router.post('/:id/sign', authenticateToken, async (req, res, next) => {
     }
 
     let newStatus = contract.status;
-    let updateCol, signedAt, signedBy;
+    let updateCol, signedBy;
 
     if (role === 'supplier') {
       if (contract.supplier_signed_at) {

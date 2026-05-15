@@ -71,7 +71,7 @@ class Company {
        FROM companies
        WHERE ${conditions.join(' AND ')}
        ORDER BY created_at DESC
-       LIMIT $${idx++} OFFSET $${idx++}`,
+       LIMIT $${idx++} OFFSET $${idx}`,
       values
     );
     return rows;
