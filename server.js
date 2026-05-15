@@ -29,9 +29,11 @@ require('dotenv').config();
 const app    = express();
 const server = http.createServer(app);
 
+// Support comma-separated origins: e.g. "https://globrixa.com,https://www.globrixa.com"
 const ALLOWED_ORIGINS = [
-  process.env.FRONTEND_URL,
+  ...(process.env.FRONTEND_URL || '').split(',').map(u => u.trim()).filter(Boolean),
   'http://localhost:5173',
+  'http://localhost:5174',
 ].filter(Boolean);
 
 const io = new Server(server, {
@@ -57,7 +59,7 @@ async function initializeServer() {
     const redisReply = await redis.get('test');
     logger.info(`Redis connection successful: ${redisReply}`);
   } catch (err) {
-    logger.error('Failed to initialize server:', err.stack);
+    logger.error('Failed to initialize server', { message: err.message, stack: err.stack });
     process.exit(1);
   }
 }
@@ -112,7 +114,7 @@ const PORT = process.env.PORT || 8000;
 initializeServer().then(() => {
   server.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
 }).catch((err) => {
-  logger.error('Server startup failed:', err.stack);
+  logger.error('Server startup failed', { message: err.message, stack: err.stack });
   process.exit(1);
 });
 
