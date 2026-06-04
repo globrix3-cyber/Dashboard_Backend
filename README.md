@@ -1,6 +1,23 @@
 # Globrixa B2B Backend
 
-A production-grade REST API for a **B2B Export Marketplace** — connecting international buyers and suppliers through RFQ workflows, product catalogs, real-time messaging, order management, and contracts.
+**Globrixa** is India's wholesale marketplace connecting verified Indian manufacturers with global buyers. This repository contains the production-grade REST API that powers the entire platform — authentication, product catalog, RFQ workflows, order management, contracts, real-time messaging, and admin operations.
+
+> Frontend repository: `b2b-frontend` (React 19 + Vite)
+
+---
+
+## What This Server Does
+
+The backend is the single source of truth for all Globrixa business logic. It handles:
+
+- **Who you are** — registration, login, JWT sessions, role-based access (buyer / supplier / admin)
+- **What's for sale** — supplier product catalog with images, pricing tiers, categories, and visibility controls
+- **Finding and quoting** — buyers post RFQs, suppliers respond with structured quotes, both parties negotiate
+- **Closing the deal** — accepted quotes generate purchase orders and digital contracts with dual e-signatures
+- **Staying in sync** — real-time notifications and buyer–supplier chat via Socket.IO
+- **Running the platform** — admin tools for supplier verification, user management, and analytics
+
+---
 
 ---
 
@@ -347,4 +364,15 @@ npm start      # Start production server
 
 ## License
 
-Private — All rights reserved.
+Private — All rights reserved. © 2026 Globrixa Technologies Pvt. Ltd.
+
+---
+
+## Team
+
+**Nishant Gaur** — Founder & CEO
+**Rahul Srivastava** — CTO
+
+---
+
+*For the full non-technical product overview, see `OVERVIEW.md` in the frontend repository.*
