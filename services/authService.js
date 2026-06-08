@@ -2,12 +2,17 @@ const bcrypt  = require('bcrypt');
 const jwt     = require('jsonwebtoken');
 const crypto  = require('crypto');
 const pool    = require('../config/db');
+const redis   = require('../config/redis');
 const User    = require('../models/user');
 const Session = require('../models/session');
+const { sendPasswordResetPin } = require('../utils/mailer');
 
 const SALT_ROUNDS        = 12;
 const ACCESS_EXPIRES     = '15m';
 const REFRESH_EXPIRES_MS = 7 * 24 * 60 * 60 * 1000;
+const RESET_PIN_TTL_SEC  = 15 * 60;
+
+const resetKey = (email) => `pwreset:${email.toLowerCase()}`;
 
 function generateAccessToken(user_id) {
   return jwt.sign({ user_id }, process.env.JWT_SECRET, { expiresIn: ACCESS_EXPIRES });
@@ -21,7 +26,7 @@ function hashToken(token) {
   return crypto.createHash('sha256').update(token).digest('hex');
 }
 
-async function register({ email, password, phone_number, preferred_language, role, name, full_name, company }) {
+async function register({ email, password, phone_number, preferred_language, role, name, full_name, company, onboarding_answers }) {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -73,6 +78,14 @@ async function register({ email, password, phone_number, preferred_language, rol
       await client.query(
         `INSERT INTO company_users (user_id, company_id) VALUES ($1, $2)`,
         [userRows[0].id, co.id]
+      );
+    }
+
+    // Persist onboarding quiz answers, if the buyer/supplier completed one
+    if (onboarding_answers && typeof onboarding_answers === 'object' && Object.keys(onboarding_answers).length) {
+      await client.query(
+        `INSERT INTO onboarding_responses (user_id, role, answers) VALUES ($1, $2, $3)`,
+        [userRows[0].id, role, JSON.stringify(onboarding_answers)]
       );
     }
 
@@ -179,4 +192,37 @@ async function logout({ refresh_token }) {
   await Session.deleteByTokenHash(hashToken(refresh_token));
 }
 
-module.exports = { register, login, refresh, logout };
+/* ── Forgot password — email a 6-digit PIN, valid for 15 minutes ─────────────── */
+async function forgotPassword({ email }) {
+  const user = await User.findByEmail(email);
+  // Always succeed from the caller's perspective — don't reveal whether an account exists
+  if (!user) return;
+
+  const pin = String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
+  await redis.set(resetKey(email), hashToken(pin), { EX: RESET_PIN_TTL_SEC });
+  await sendPasswordResetPin(user.email, pin);
+}
+
+/* ── Reset password — verify the emailed PIN, then set a new password ────────── */
+async function resetPassword({ email, pin, new_password }) {
+  const storedHash = await redis.get(resetKey(email));
+  if (!storedHash || storedHash !== hashToken(pin)) {
+    const err = new Error('Invalid or expired PIN');
+    err.status = 400;
+    throw err;
+  }
+
+  const user = await User.findByEmail(email);
+  if (!user) {
+    const err = new Error('Invalid or expired PIN');
+    err.status = 400;
+    throw err;
+  }
+
+  const password_hash = await bcrypt.hash(new_password, SALT_ROUNDS);
+  await User.updatePassword(user.id, password_hash);
+  await redis.del(resetKey(email));
+  await Session.deleteAllForUser(user.id);
+}
+
+module.exports = { register, login, refresh, logout, forgotPassword, resetPassword };

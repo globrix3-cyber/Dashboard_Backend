@@ -60,4 +60,32 @@ router.post('/logout', authenticateToken, async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
+router.post('/forgot-password',
+  validate({
+    email: { required: true, type: 'string', isEmail: true },
+  }),
+  async (req, res, next) => {
+    try {
+      await authService.forgotPassword({ email: req.body.email });
+      // Always respond the same way — don't reveal whether the email is registered
+      res.json({ message: 'If that email is registered, a reset PIN has been sent to it.' });
+    } catch (err) { next(err); }
+  }
+);
+
+router.post('/reset-password',
+  validate({
+    email:        { required: true, type: 'string', isEmail: true },
+    pin:          { required: true, type: 'string', minLength: 6 },
+    new_password: { required: true, type: 'string', minLength: 8 },
+  }),
+  async (req, res, next) => {
+    try {
+      const { email, pin, new_password } = req.body;
+      await authService.resetPassword({ email, pin, new_password });
+      res.json({ message: 'Password reset successful. You can now log in with your new password.' });
+    } catch (err) { next(err); }
+  }
+);
+
 module.exports = router;
