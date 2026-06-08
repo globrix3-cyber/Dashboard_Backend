@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
-const { authenticateToken: authenticate } = require('../middleware/auth');
+const { authenticateToken: authenticate, optionalAuth } = require('../middleware/auth');
 const productModel = require('../models/product');
 const logger = require('../utils/logger');
 
@@ -77,8 +77,8 @@ router.post(
 
 /* ====================== PRODUCTS ====================== */
 
-// GET /api/products
-router.get('/', authenticate, async (req, res, next) => {
+// GET /api/products — public browsing (Faire-style); personalizes when signed in
+router.get('/', optionalAuth, async (req, res, next) => {
   try {
     const products = await productModel.findAll({
       userId: req.user?.user_id,
@@ -112,8 +112,8 @@ router.post(
   }
 );
 
-// GET /api/products/:id
-router.get('/:id', authenticate, async (req, res, next) => {
+// GET /api/products/:id — public browsing (Faire-style); personalizes when signed in
+router.get('/:id', optionalAuth, async (req, res, next) => {
   try {
     const product = await productModel.findById(req.params.id);
     if (!product) {

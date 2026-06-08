@@ -53,6 +53,50 @@ const authenticateToken = async (req, res, next) => {
   }
 };
 
+// Like authenticateToken, but never rejects — guests pass through with req.user = null.
+// Used on public browsing endpoints (e.g. product/category listings) that personalize
+// for signed-in users without walling off guests.
+const optionalAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers['authorization'];
+    const token      = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+      req.user = null;
+      return next();
+    }
+
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    if (!payload || !payload.user_id) {
+      req.user = null;
+      return next();
+    }
+
+    const { rows } = await pool.query(
+      `SELECT
+         u.id       AS user_id,
+         u.email,
+         u.is_active,
+         u.role_id,
+         r.name     AS role
+       FROM users u
+       LEFT JOIN roles r ON r.id = u.role_id
+       WHERE u.id = $1`,
+      [payload.user_id]
+    );
+
+    const u = rows[0];
+    req.user = (u && u.is_active)
+      ? { user_id: u.user_id, email: u.email, role_id: u.role_id || null, role: u.role || null }
+      : null;
+
+    next();
+  } catch {
+    req.user = null;
+    next();
+  }
+};
+
 const checkPermission = (module, action) => {
   return async (req, res, next) => {
     if (!req.user?.role_id) {
@@ -80,4 +124,4 @@ const checkPermission = (module, action) => {
   };
 };
 
-module.exports = { authenticateToken, checkPermission };
+module.exports = { authenticateToken, optionalAuth, checkPermission };

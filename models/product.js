@@ -65,9 +65,20 @@ async function findAll({ userId, role }) {
 ────────────────────────────────────────────────────────────────────────────── */
 async function findById(productId) {
   const { rows: [product] } = await pool.query(
-    `SELECT p.*, c.name AS category_name
+    `SELECT
+       p.*,
+       c.name              AS category_name,
+       co.id               AS supplier_id,
+       co.brand_name       AS supplier_brand_name,
+       co.legal_name       AS supplier_legal_name,
+       co.logo_url         AS supplier_logo_url,
+       co.city             AS supplier_city,
+       co.state_province   AS supplier_state,
+       co.country          AS supplier_country,
+       co.verified_status  AS supplier_verified_status
      FROM   products p
-     JOIN   categories c ON c.id = p.category_id
+     JOIN   categories c  ON c.id  = p.category_id
+     JOIN   companies  co ON co.id = p.supplier_company_id
      WHERE  p.id = $1`,
     [productId]
   );
