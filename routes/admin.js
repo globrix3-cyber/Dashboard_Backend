@@ -148,31 +148,29 @@ router.patch('/companies/:id/verify', authenticateToken, adminOnly, async (req, 
 
 /* ── Platform Stats ─────────────────────────────────────────────────────���───── */
 
-// GET /api/admin/stats
+// GET /api/admin/stats — each query is independent so a missing table never kills the whole response
 router.get('/stats', authenticateToken, adminOnly, async (req, res, next) => {
+  const safe = async (q, fallback) => { try { const r = await pool.query(q); return r.rows[0]; } catch { return fallback; } };
+
   try {
     const [users, cos, products, orders, kyc] = await Promise.all([
-      pool.query(`SELECT COUNT(*)::int AS total, COUNT(*) FILTER (WHERE is_active = true)::int AS active FROM users`),
-      pool.query(`SELECT COUNT(*)::int AS total FROM companies WHERE is_active = true`),
-      pool.query(`SELECT COUNT(*)::int AS total FROM products WHERE status = 'active'`),
-      pool.query(
-        `SELECT COUNT(*)::int AS active_orders,
-                COALESCE(SUM(total_amount) FILTER (WHERE created_at >= now() - interval '30 days'), 0) AS monthly_revenue
-         FROM orders`
-      ),
-      pool.query(`SELECT COUNT(*)::int AS pending FROM companies WHERE verified_status = 'pending' AND is_active = true`),
+      safe(`SELECT COUNT(*) FILTER (WHERE is_active = true)::int AS active FROM users`,                                                                                                          { active: 0 }),
+      safe(`SELECT COUNT(*)::int AS total FROM companies WHERE is_active = true`,                                                                                                                { total: 0 }),
+      safe(`SELECT COUNT(*)::int AS total FROM products WHERE status = 'active'`,                                                                                                                { total: 0 }),
+      safe(`SELECT COUNT(*)::int AS active_orders, COALESCE(SUM(total_amount) FILTER (WHERE created_at >= now() - interval '30 days'),0) AS monthly_revenue FROM orders`, { active_orders: 0, monthly_revenue: 0 }),
+      safe(`SELECT COUNT(*)::int AS pending FROM companies WHERE verified_status = 'pending' AND is_active = true`,                                                                              { pending: 0 }),
     ]);
 
-    const rev = Number(orders.rows[0].monthly_revenue || 0);
+    const rev = Number(orders.monthly_revenue || 0);
     res.json({ data: {
-      totalUsers:     users.rows[0].active,
-      totalCompanies: cos.rows[0].total,
-      totalProducts:  products.rows[0].total,
-      activeOrders:   orders.rows[0].active_orders,
-      monthlyRevenue: rev >= 10_000_000 ? `${(rev / 10_000_000).toFixed(1)} Cr`
-                    : rev >= 100_000    ? `${(rev / 100_000).toFixed(1)}L`
+      totalUsers:     users.active,
+      totalCompanies: cos.total,
+      totalProducts:  products.total,
+      activeOrders:   orders.active_orders,
+      monthlyRevenue: rev >= 10_000_000 ? `₹${(rev / 10_000_000).toFixed(1)} Cr`
+                    : rev >= 100_000    ? `₹${(rev / 100_000).toFixed(1)}L`
                     : `₹${rev.toLocaleString('en-IN')}`,
-      pendingKyc:     kyc.rows[0].pending,
+      pendingKyc:     kyc.pending,
     }});
   } catch (err) { next(err); }
 });
