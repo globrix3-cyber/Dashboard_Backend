@@ -103,7 +103,7 @@ router.post(
   async (req, res, next) => {
     if (validationGuard(req, res)) return;
     try {
-      const product = await productModel.create(req.user.id, req.body);
+      const product = await productModel.create(req.user.user_id, req.body);
       logger.success(`Product created: ${product?.id}`);
       res.status(201).json({ message: 'Product created', data: product });
     } catch (err) { 
@@ -128,20 +128,20 @@ router.get('/:id', optionalAuth, async (req, res, next) => {
 // PUT /api/products/:id
 router.put('/:id', authenticate, supplierOnly, async (req, res, next) => {
   try {
-    const product = await productModel.update(req.user.id, req.params.id, req.body);
+    const product = await productModel.update(req.user.user_id, req.params.id, req.body);
     res.json({ message: 'Product updated', data: product });
-  } catch (err) { 
-    next(err); 
+  } catch (err) {
+    next(err);
   }
 });
 
 // DELETE /api/products/:id
 router.delete('/:id', authenticate, supplierOnly, async (req, res, next) => {
   try {
-    await productModel.remove(req.user.id, req.params.id);
+    await productModel.remove(req.user.user_id, req.params.id);
     res.json({ message: 'Product deleted successfully' });
-  } catch (err) { 
-    next(err); 
+  } catch (err) {
+    next(err);
   }
 });
 

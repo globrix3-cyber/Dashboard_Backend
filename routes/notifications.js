@@ -7,7 +7,7 @@ const { authenticateToken } = require('../middleware/auth');
 router.get('/', authenticateToken, async (req, res, next) => {
   try {
     const { rows } = await pool.query(
-      `SELECT id, title, message, type, is_read, created_at
+      `SELECT id, subject AS title, body AS message, type, is_read, created_at
        FROM notifications
        WHERE user_id = $1
        ORDER BY created_at DESC

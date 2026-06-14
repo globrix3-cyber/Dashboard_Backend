@@ -157,7 +157,7 @@ router.get('/stats', authenticateToken, adminOnly, async (req, res, next) => {
       safe(`SELECT COUNT(*) FILTER (WHERE is_active = true)::int AS active FROM users`,                                                                                                          { active: 0 }),
       safe(`SELECT COUNT(*)::int AS total FROM companies WHERE is_active = true`,                                                                                                                { total: 0 }),
       safe(`SELECT COUNT(*)::int AS total FROM products WHERE status = 'active'`,                                                                                                                { total: 0 }),
-      safe(`SELECT COUNT(*)::int AS active_orders, COALESCE(SUM(total_amount) FILTER (WHERE created_at >= now() - interval '30 days'),0) AS monthly_revenue FROM orders`, { active_orders: 0, monthly_revenue: 0 }),
+      safe(`SELECT COUNT(*)::int AS active_orders, COALESCE(SUM(order_value) FILTER (WHERE created_at >= now() - interval '30 days'),0) AS monthly_revenue FROM orders`, { active_orders: 0, monthly_revenue: 0 }),
       safe(`SELECT COUNT(*)::int AS pending FROM companies WHERE verified_status = 'pending' AND is_active = true`,                                                                              { pending: 0 }),
     ]);
 

@@ -23,7 +23,8 @@ async function getCompanyId(userId) {
 ────────────────────────────────────────────────────────────────────────────── */
 async function findAll({ userId, role }) {
   if (role === 'supplier') {
-    const companyId = await getCompanyId(userId);
+    let companyId;
+    try { companyId = await getCompanyId(userId); } catch { return []; }
     const { rows } = await pool.query(
       `SELECT
          p.*,

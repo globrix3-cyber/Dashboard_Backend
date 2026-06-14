@@ -67,8 +67,7 @@ router.post('/forgot-password',
   async (req, res, next) => {
     try {
       await authService.forgotPassword({ email: req.body.email });
-      // Always respond the same way — don't reveal whether the email is registered
-      res.json({ message: 'If that email is registered, a reset PIN has been sent to it.' });
+      res.json({ message: 'Reset PIN sent. Check your inbox.' });
     } catch (err) { next(err); }
   }
 );

@@ -68,18 +68,18 @@ async function register({ email, password, phone_number, preferred_language, rol
       [email, password_hash, phone_number || null, preferred_language || 'en', roleRows[0].id, resolvedName]
     );
 
-    // Auto-create company if name provided
-    if (company) {
-      const { rows: [co] } = await client.query(
-        `INSERT INTO companies (legal_name, is_buyer, is_supplier, country)
-         VALUES ($1, $2, $3, 'IN') RETURNING id`,
-        [company, role === 'buyer', role === 'supplier']
-      );
-      await client.query(
-        `INSERT INTO company_users (user_id, company_id) VALUES ($1, $2)`,
-        [userRows[0].id, co.id]
-      );
-    }
+    // Always create a company so the user can immediately list products / create RFQs.
+    // Use the provided company name if given, otherwise fall back to the user's name or email handle.
+    const companyName = (company && company.trim()) || resolvedName || email.split('@')[0];
+    const { rows: [co] } = await client.query(
+      `INSERT INTO companies (legal_name, is_buyer, is_supplier, country)
+       VALUES ($1, $2, $3, 'IN') RETURNING id`,
+      [companyName, role === 'buyer', role === 'supplier']
+    );
+    await client.query(
+      `INSERT INTO company_users (user_id, company_id) VALUES ($1, $2)`,
+      [userRows[0].id, co.id]
+    );
 
     // Persist onboarding quiz answers, if the buyer/supplier completed one
     if (onboarding_answers && typeof onboarding_answers === 'object' && Object.keys(onboarding_answers).length) {
@@ -107,8 +107,8 @@ async function register({ email, password, phone_number, preferred_language, rol
 async function login({ email, password, device_info, ip_address }) {
   const user = await User.findByEmail(email);
   if (!user) {
-    const err = new Error('Invalid credentials'); 
-    err.status = 401; 
+    const err = new Error('No account found with this email');
+    err.status = 404;
     throw err;
   }
   if (!user.is_active) {
@@ -195,8 +195,11 @@ async function logout({ refresh_token }) {
 /* ── Forgot password — email a 6-digit PIN, valid for 15 minutes ─────────────── */
 async function forgotPassword({ email }) {
   const user = await User.findByEmail(email);
-  // Always succeed from the caller's perspective — don't reveal whether an account exists
-  if (!user) return;
+  if (!user) {
+    const err = new Error('No account found with this email');
+    err.status = 404;
+    throw err;
+  }
 
   const pin = String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
   await redis.set(resetKey(email), hashToken(pin), { EX: RESET_PIN_TTL_SEC });
