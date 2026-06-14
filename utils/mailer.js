@@ -1,26 +1,16 @@
-// utils/mailer.js
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const logger     = require('./logger');
 
-// Use explicit host + port + family:4 instead of service:'gmail' shorthand.
-// Railway (and many cloud hosts) have no IPv6 route to Gmail's SMTP servers;
-// the 'gmail' shorthand resolves to an IPv6 address and fails with ENETUNREACH.
-// family:4 forces DNS to return the IPv4 address for smtp.gmail.com.
-const transporter = nodemailer.createTransport({
-  host:   'smtp.gmail.com',
-  port:   587,
-  secure: false, // STARTTLS on 587
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_APP_PASSWORD,
-  },
-  family: 4, // force IPv4 — prevents ENETUNREACH on IPv6-limited hosts
-});
+// Resend sends over HTTPS — works on Railway (and any host) unlike SMTP.
+// From address uses onboarding@resend.dev until globrixa.com is verified in
+// the Resend dashboard; after that change to: 'Globrixa <noreply@globrixa.com>'
+const resend = new Resend(process.env.RESEND_API_KEY);
+const FROM   = 'Globrixa <onboarding@resend.dev>';
 
 async function sendPasswordResetPin(to, pin) {
-  await transporter.sendMail({
-    from:    `"Globrixa" <${process.env.EMAIL_USER}>`,
-    to,
+  const { error } = await resend.emails.send({
+    from:    FROM,
+    to:      [to],
     subject: 'Your Globrixa password reset PIN',
     text:    `Your password reset PIN is ${pin}. It expires in 15 minutes. If you didn't request this, you can safely ignore this email.`,
     html: `
@@ -34,6 +24,14 @@ async function sendPasswordResetPin(to, pin) {
       </div>
     `,
   });
+
+  if (error) {
+    logger.error('Resend email failed', { to, error: error.message, code: error.name });
+    const err = new Error('Email delivery failed');
+    err.code  = error.name;
+    throw err;
+  }
+
   logger.info('Password reset PIN email sent', { to });
 }
 
