@@ -2,12 +2,19 @@
 const nodemailer = require('nodemailer');
 const logger     = require('./logger');
 
+// Use explicit host + port + family:4 instead of service:'gmail' shorthand.
+// Railway (and many cloud hosts) have no IPv6 route to Gmail's SMTP servers;
+// the 'gmail' shorthand resolves to an IPv6 address and fails with ENETUNREACH.
+// family:4 forces DNS to return the IPv4 address for smtp.gmail.com.
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host:   'smtp.gmail.com',
+  port:   587,
+  secure: false, // STARTTLS on 587
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_APP_PASSWORD,
   },
+  family: 4, // force IPv4 — prevents ENETUNREACH on IPv6-limited hosts
 });
 
 async function sendPasswordResetPin(to, pin) {
