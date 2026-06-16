@@ -52,7 +52,7 @@ router.post('/refresh', async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
-router.post('/logout', authenticateToken, async (req, res, next) => {
+router.post('/logout', async (req, res, next) => {
   try {
     const { refresh_token } = req.body;
     await authService.logout({ refresh_token });
