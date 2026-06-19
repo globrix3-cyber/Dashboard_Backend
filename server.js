@@ -19,6 +19,7 @@ const notificationsRoutes = require('./routes/notifications');
 const adminRoutes         = require('./routes/admin');
 const messagesRoutes      = require('./routes/messages');
 const contractsRoutes     = require('./routes/contracts');
+const cartRoutes          = require('./routes/cart');
 
 const limiter      = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/error');
@@ -104,6 +105,7 @@ app.use('/api/notifications', notificationsRoutes);
 app.use('/api/admin',         adminRoutes);
 app.use('/api',               messagesRoutes);
 app.use('/api/contracts',     contractsRoutes);
+app.use('/api/cart',          cartRoutes);
 
 // ==================== ERROR HANDLER ====================
 app.use(errorHandler);
