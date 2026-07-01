@@ -4,11 +4,24 @@ const authService = require('../services/authService');
 const validate    = require('../middleware/validate');
 const { authenticateToken } = require('../middleware/auth');
 
+router.post('/send-otp',
+  validate({
+    email: { required: true, type: 'string', isEmail: true },
+  }),
+  async (req, res, next) => {
+    try {
+      await authService.sendVerificationOtp({ email: req.body.email });
+      res.json({ message: 'Verification code sent to your email' });
+    } catch (err) { next(err); }
+  }
+);
+
 router.post('/register',
   validate({
     email:    { required: true, type: 'string', isEmail: true },
     password: { required: true, type: 'string', minLength: 8 },
     role:     { required: true, type: 'string' },
+    otp:      { required: true, type: 'string', minLength: 6 },
   }),
   async (req, res, next) => {
     try {

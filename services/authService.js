@@ -5,14 +5,16 @@ const pool    = require('../config/db');
 const redis   = require('../config/redis');
 const User    = require('../models/user');
 const Session = require('../models/session');
-const { sendPasswordResetPin } = require('../utils/mailer');
+const { sendPasswordResetPin, sendEmailVerificationOtp } = require('../utils/mailer');
 
 const SALT_ROUNDS        = 12;
 const ACCESS_EXPIRES     = '15m';
 const REFRESH_EXPIRES_MS = 7 * 24 * 60 * 60 * 1000;
 const RESET_PIN_TTL_SEC  = 15 * 60;
+const VERIFY_OTP_TTL_SEC = 10 * 60;
 
-const resetKey = (email) => `pwreset:${email.toLowerCase()}`;
+const resetKey  = (email) => `pwreset:${email.toLowerCase()}`;
+const verifyKey = (email) => `emailverify:${email.toLowerCase()}`;
 
 function generateAccessToken(user_id) {
   return jwt.sign({ user_id }, process.env.JWT_SECRET, { expiresIn: ACCESS_EXPIRES });
@@ -26,7 +28,27 @@ function hashToken(token) {
   return crypto.createHash('sha256').update(token).digest('hex');
 }
 
-async function register({ email, password, phone_number, preferred_language, role, name, full_name, company, onboarding_answers }) {
+async function sendVerificationOtp({ email }) {
+  const { rows } = await pool.query(`SELECT id FROM users WHERE email = $1`, [email]);
+  if (rows.length > 0) {
+    const err = new Error('Email already in use');
+    err.status = 409;
+    throw err;
+  }
+  const otp = String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
+  await redis.set(verifyKey(email), hashToken(otp), { EX: VERIFY_OTP_TTL_SEC });
+  await sendEmailVerificationOtp(email, otp);
+}
+
+async function register({ email, password, phone_number, preferred_language, role, name, full_name, company, onboarding_answers, otp }) {
+  // Verify email OTP before touching the database
+  const storedHash = await redis.get(verifyKey(email));
+  if (!storedHash || storedHash !== hashToken(String(otp || ''))) {
+    const err = new Error('Invalid or expired verification code');
+    err.status = 400;
+    throw err;
+  }
+
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -91,8 +113,10 @@ async function register({ email, password, phone_number, preferred_language, rol
 
     await client.query('COMMIT');
 
-    // Return minimal user info (frontend will get full user after login if needed)
-    return { 
+    // OTP used — remove it so it can't be replayed
+    await redis.del(verifyKey(email));
+
+    return {
       user: userRows[0],
       message: 'Registration successful. You can now login.'
     };
@@ -228,4 +252,4 @@ async function resetPassword({ email, pin, new_password }) {
   await Session.deleteAllForUser(user.id);
 }
 
-module.exports = { register, login, refresh, logout, forgotPassword, resetPassword };
+module.exports = { sendVerificationOtp, register, login, refresh, logout, forgotPassword, resetPassword };
