@@ -34,7 +34,7 @@ router.get('/users', authenticateToken, adminOnly, async (req, res, next) => {
     vals.push(parseInt(limit), offset);
 
     const { rows } = await pool.query(
-      `SELECT u.id, u.email, u.full_name, u.is_active, u.created_at,
+      `SELECT u.id, u.email, u.full_name, u.phone_number, u.is_active, u.created_at,
               r.name AS role,
               c.legal_name AS company, c.city
        FROM users u
@@ -65,6 +65,31 @@ router.patch('/users/:id/suspend', authenticateToken, adminOnly, async (req, res
       data: user,
       message: user.is_active ? 'User reactivated' : 'User suspended',
     });
+  } catch (err) { next(err); }
+});
+
+// GET /api/admin/users/:id — full profile + onboarding answers
+router.get('/users/:id', authenticateToken, adminOnly, async (req, res, next) => {
+  try {
+    const { rows: [user] } = await pool.query(
+      `SELECT u.id, u.email, u.full_name, u.phone_number, u.is_active, u.created_at,
+              r.name AS role,
+              c.legal_name AS company, c.city, c.country
+       FROM users u
+       LEFT JOIN roles r ON r.id = u.role_id
+       LEFT JOIN company_users cu ON cu.user_id = u.id AND cu.is_active = true
+       LEFT JOIN companies c ON c.id = cu.company_id
+       WHERE u.id = $1`,
+      [req.params.id]
+    );
+    if (!user) return res.status(404).json({ error: 'User not found', code: 'NOT_FOUND' });
+
+    const { rows: [onboarding] } = await pool.query(
+      `SELECT role, answers FROM onboarding_responses WHERE user_id = $1 LIMIT 1`,
+      [req.params.id]
+    );
+
+    res.json({ data: { ...user, onboarding_answers: onboarding?.answers || null, onboarding_role: onboarding?.role || null } });
   } catch (err) { next(err); }
 });
 
