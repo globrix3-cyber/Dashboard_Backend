@@ -2,10 +2,8 @@ const { Resend } = require('resend');
 const logger     = require('./logger');
 
 // Resend sends over HTTPS — works on Railway (and any host) unlike SMTP.
-// From address uses onboarding@resend.dev until globrixa.com is verified in
-// the Resend dashboard; after that change to: 'Globrixa <noreply@globrixa.com>'
 const resend = new Resend(process.env.RESEND_API_KEY);
-const FROM   = 'Globrixa <onboarding@resend.dev>';
+const FROM   = 'Globrixa <noreply@globrixa.com>';
 
 async function sendPasswordResetPin(to, pin) {
   const { error } = await resend.emails.send({
