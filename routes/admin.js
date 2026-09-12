@@ -130,10 +130,10 @@ router.get('/verifications', authenticateToken, adminOnly, async (req, res, next
     const { rows } = await pool.query(
       `SELECT c.id, c.legal_name, c.city, c.country, c.verified_status,
               c.created_at, c.employee_count, c.is_buyer, c.is_supplier,
-         (SELECT crn.registration_number
+         (SELECT crn.reg_number
           FROM company_registration_numbers crn
           WHERE crn.company_id = c.id AND crn.reg_type = 'gst' LIMIT 1) AS gst_number,
-         (SELECT crn.registration_number
+         (SELECT crn.reg_number
           FROM company_registration_numbers crn
           WHERE crn.company_id = c.id AND crn.reg_type = 'pan' LIMIT 1) AS pan_number,
          u.email    AS owner_email,
