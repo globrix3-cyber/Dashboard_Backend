@@ -54,14 +54,20 @@ async function initializeServer() {
     const pool  = require('./config/db');
     const dbRes = await pool.query('SELECT NOW()');
     logger.info(`Database connection successful: ${JSON.stringify(dbRes.rows[0], null, 2)}`);
-
-    const redis = require('./config/redis');
-    await redis.set('test', 'Redis works!');
-    const redisReply = await redis.get('test');
-    logger.info(`Redis connection successful: ${redisReply}`);
   } catch (err) {
     logger.error('Failed to initialize server', { message: err.message, stack: err.stack });
     process.exit(1);
+  }
+
+  // Redis only backs OTP / password-reset codes, so start without it if it's unreachable
+  try {
+    const redis = require('./config/redis');
+    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Redis check timed out')), 5000));
+    await Promise.race([redis.set('test', 'Redis works!'), timeout]);
+    const redisReply = await Promise.race([redis.get('test'), timeout]);
+    logger.info(`Redis connection successful: ${redisReply}`);
+  } catch (err) {
+    logger.warn('Redis unavailable; starting without it (email verification and password reset will fail)', { message: err.message });
   }
 }
 
