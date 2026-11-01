@@ -21,7 +21,7 @@ async function getCompanyId(userId) {
    Supplier → own products (all statuses)
    Buyer    → active products only
 ────────────────────────────────────────────────────────────────────────────── */
-async function findAll({ userId, role }) {
+async function findAll({ userId, role, limit = null }) {
   if (role === 'supplier') {
     let companyId;
     try { companyId = await getCompanyId(userId); } catch { return []; }
@@ -37,8 +37,9 @@ async function findAll({ userId, role }) {
        FROM   products p
        JOIN   categories c ON c.id = p.category_id
        WHERE  p.supplier_company_id = $1
-       ORDER  BY p.created_at DESC`,
-      [companyId]
+       ORDER  BY p.created_at DESC
+       LIMIT  $2`,
+      [companyId, limit]
     );
     return rows;
   }
@@ -56,7 +57,9 @@ async function findAll({ userId, role }) {
      FROM   products p
      JOIN   categories c ON c.id = p.category_id
      WHERE  p.status = 'active'
-     ORDER  BY p.created_at DESC`
+     ORDER  BY p.created_at DESC
+     LIMIT  $1`,
+    [limit]
   );
   return rows;
 }

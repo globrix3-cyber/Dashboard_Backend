@@ -80,9 +80,11 @@ router.post(
 // GET /api/products — public browsing (Faire-style); personalizes when signed in
 router.get('/', optionalAuth, async (req, res, next) => {
   try {
+    const requested = Number.parseInt(req.query.limit, 10);
     const products = await productModel.findAll({
       userId: req.user?.user_id,
       role:   req.user?.role,
+      limit:  requested > 0 ? Math.min(requested, 100) : null,
     });
     res.json({ message: 'Products fetched', data: products || [] });
   } catch (err) { 
