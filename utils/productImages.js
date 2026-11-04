@@ -13,6 +13,7 @@ function cloudName() {
 }
 
 const VERSION_SEGMENT = /^v\d+$/;
+const SAFE_SEGMENT    = /^[A-Za-z0-9_.-]+$/;
 // One transformation step, e.g. "f_auto,q_auto" or "c_limit,h_2400,w_2400".
 const TRANSFORM_SEGMENT = /^[a-z]{1,3}_[A-Za-z0-9_.:!$-]+(,[a-z]{1,3}_[A-Za-z0-9_.:!$-]+)*$/;
 
@@ -23,8 +24,8 @@ function imageError(message, code) {
   return err;
 }
 
-// Returns the public_id path segments (after transformations/version) or null when the URL isn't one of our Cloudinary images.
-function publicIdSegments(imageUrl) {
+// Returns { path, version } for one of our Cloudinary images (transformations skipped), or null.
+function parseImageUrl(imageUrl) {
   const cloud = cloudName();
   if (!cloud) return null;
 
@@ -50,12 +51,22 @@ function publicIdSegments(imageUrl) {
   const leading = segments.slice(0, start);
   if (!leading.every((s, i) => VERSION_SEGMENT.test(s) ? i === leading.length - 1 : TRANSFORM_SEGMENT.test(s))) return null;
 
-  return segments.slice(start);
+  const path = segments.slice(start);
+  if (!path.every(s => SAFE_SEGMENT.test(s))) return null;
+  const version = VERSION_SEGMENT.test(leading[leading.length - 1] || '') ? leading[leading.length - 1] : null;
+  return { path, version, cloud };
+}
+
+// Plain delivery URL for the image, with any client-supplied transformations removed.
+function canonicalImageUrl(imageUrl) {
+  const parsed = parseImageUrl(imageUrl);
+  if (!parsed) return null;
+  return `https://res.cloudinary.com/${parsed.cloud}/image/upload/${parsed.version ? `${parsed.version}/` : ''}${parsed.path.join('/')}`;
 }
 
 // True when the URL is a Cloudinary image in the uploader's own folder or their company's migrated folder.
 function isOwnedImageUrl(imageUrl, { userId, companyId }) {
-  const path = publicIdSegments(imageUrl);
+  const path = parseImageUrl(imageUrl)?.path;
   if (!path || path[0] !== 'globrixa' || path[1] !== 'products') return false;
   if (path[2] === 'migrated') {
     return path.length > 4 && companyId != null && path[3] === String(companyId);
@@ -90,9 +101,11 @@ function normalizeProductImages(images, { userId, companyId, existingUrls = [] }
     if (!isOwnedImageUrl(img.image_url, { userId, companyId })) {
       throw imageError('Photos must be uploaded through the listing form', 'INVALID_IMAGE');
     }
+    // Store the plain URL so no transformation (overlays, text, fetches) can ride along.
+    img.image_url = canonicalImageUrl(img.image_url);
   }
 
   return cleaned;
 }
 
-module.exports = { normalizeProductImages, isOwnedImageUrl, MAX_IMAGES };
+module.exports = { normalizeProductImages, isOwnedImageUrl, canonicalImageUrl, MAX_IMAGES };
