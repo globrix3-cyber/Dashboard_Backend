@@ -14,7 +14,7 @@ function scrubSentryEvent(event) {
     if (event.request.url) event.request.url = event.request.url.split('?')[0];
     if (event.request.headers) {
       for (const h of Object.keys(event.request.headers)) {
-        if (/^(authorization|cookie|set-cookie|x-api-key|x-refresh-token)$/i.test(h)) delete event.request.headers[h];
+        if (/^(authorization|cookie|set[-_]cookie|x[-_]api[-_]key|x[-_]refresh[-_]token)$/i.test(h)) delete event.request.headers[h];
       }
     }
   }
@@ -25,7 +25,7 @@ function scrubSentrySpan(span) {
   const data = span.data || span.attributes;
   if (data) {
     for (const key of Object.keys(data)) {
-      if (/header\.(authorization|cookie|set-cookie|x-api-key|x-refresh-token)|query|body/i.test(key)) delete data[key];
+      if (/header\.(authorization|cookie|set[-_]cookie|x[-_]api[-_]key|x[-_]refresh[-_]token)|query|body/i.test(key)) delete data[key];
       else if (typeof data[key] === 'string' && /^(url\.full|http\.url|http\.target|url\.path)$/.test(key)) data[key] = data[key].split('?')[0];
     }
   }
