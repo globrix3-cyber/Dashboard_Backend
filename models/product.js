@@ -372,10 +372,14 @@ async function remove(userId, productId) {
 ────────────────────────────────────────────────────────────────────────────── */
 async function getCategories() {
   const { rows } = await pool.query(
-    `SELECT id, name, slug, parent_id, description, icon_url, sort_order
-     FROM   categories
-     WHERE  is_active = true
-     ORDER  BY sort_order, name`
+    `SELECT c.id, c.name, c.slug, c.parent_id, c.description, c.icon_url, c.sort_order,
+            (SELECT COUNT(*)::int
+             FROM   products p
+             JOIN   categories pc ON pc.id = p.category_id
+             WHERE  p.status = 'active' AND (pc.id = c.id OR pc.parent_id = c.id)) AS product_count
+     FROM   categories c
+     WHERE  c.is_active = true
+     ORDER  BY c.sort_order, c.name`
   );
   return rows;
 }
