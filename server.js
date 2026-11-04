@@ -5,24 +5,43 @@ require('dotenv').config();
 // Inert unless SENTRY_DSN is set. Default integrations capture uncaught exceptions
 // and unhandled rejections.
 const Sentry = require('@sentry/node');
+// Applied to errors and performance traces alike: drop bodies, cookies, query strings and credentials.
+function scrubSentryEvent(event) {
+  if (event.request) {
+    delete event.request.data;
+    delete event.request.cookies;
+    delete event.request.query_string;
+    if (event.request.url) event.request.url = event.request.url.split('?')[0];
+    if (event.request.headers) {
+      for (const h of Object.keys(event.request.headers)) {
+        if (/^(authorization|cookie|set-cookie|x-api-key|x-refresh-token)$/i.test(h)) delete event.request.headers[h];
+      }
+    }
+  }
+  return event;
+}
+// Performance spans carry request details as attributes: drop credentials and query strings.
+function scrubSentrySpan(span) {
+  const data = span.data || span.attributes;
+  if (data) {
+    for (const key of Object.keys(data)) {
+      if (/header\.(authorization|cookie|set-cookie|x-api-key|x-refresh-token)|query|body/i.test(key)) delete data[key];
+      else if (typeof data[key] === 'string' && /^(url\.full|http\.url|http\.target|url\.path)$/.test(key)) data[key] = data[key].split('?')[0];
+    }
+  }
+  if (typeof span.description === 'string') span.description = span.description.split('?')[0];
+  return span;
+}
 if (process.env.SENTRY_DSN) {
   Sentry.init({
     dsn:              process.env.SENTRY_DSN,
     environment:      process.env.NODE_ENV || 'development',
     tracesSampleRate: 0.1,
     sendDefaultPii:   false,
-    beforeSend(event) {
-      if (event.request) {
-        delete event.request.data;
-        delete event.request.cookies;
-        if (event.request.headers) {
-          for (const h of Object.keys(event.request.headers)) {
-            if (/^(authorization|cookie|x-api-key)$/i.test(h)) delete event.request.headers[h];
-          }
-        }
-      }
-      return event;
-    },
+    // Never capture request bodies (passwords, OTPs, tokens).
+    integrations:     [Sentry.httpIntegration({ maxIncomingRequestBodySize: 'none' })],
+    beforeSend:     scrubSentryEvent,
+    beforeSendSpan: scrubSentrySpan,
   });
 }
 
