@@ -1,4 +1,5 @@
 const pool = require('../config/db');
+const { normalizeProductImages } = require('../utils/productImages');
 
 /* ─────────────────────────────────────────────────────────────────────────────
    Helper — resolve supplier's company_id from JWT user_id
@@ -142,6 +143,7 @@ async function findById(productId) {
 ────────────────────────────────────────────────────────────────────────────── */
 async function create(userId, body) {
   const companyId = await getCompanyId(userId);
+  const images    = Array.isArray(body.images) ? normalizeProductImages(body.images, { userId, companyId }) : [];
   const client    = await pool.connect();
 
   try {
@@ -174,14 +176,12 @@ async function create(userId, body) {
     const productId = product.id;
 
     // 2. Images — parameterized to prevent SQL injection
-    if (Array.isArray(body.images) && body.images.length) {
-      for (const [i, img] of body.images.entries()) {
-        await client.query(
-          `INSERT INTO product_images (product_id, image_url, alt_text, sort_order)
-           VALUES ($1, $2, $3, $4)`,
-          [productId, img.image_url, img.alt_text || null, img.sort_order ?? i]
-        );
-      }
+    for (const img of images) {
+      await client.query(
+        `INSERT INTO product_images (product_id, image_url, alt_text, sort_order)
+         VALUES ($1, $2, $3, $4)`,
+        [productId, img.image_url, img.alt_text, img.sort_order]
+      );
     }
 
     // 3. Variants
@@ -257,6 +257,20 @@ async function update(userId, productId, body) {
     throw err;
   }
 
+  // Photos already on this product (e.g. legacy links that couldn't be migrated) may be kept as-is.
+  let images = null;
+  if (Array.isArray(body.images)) {
+    const { rows: current } = await pool.query(
+      `SELECT image_url FROM product_images WHERE product_id = $1`,
+      [productId]
+    );
+    images = normalizeProductImages(body.images, {
+      userId,
+      companyId,
+      existingUrls: current.map((r) => r.image_url),
+    });
+  }
+
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -294,13 +308,13 @@ async function update(userId, productId, body) {
     );
 
     // Replace images if provided
-    if (Array.isArray(body.images)) {
+    if (images) {
       await client.query(`DELETE FROM product_images WHERE product_id = $1`, [productId]);
-      for (const [i, img] of body.images.entries()) {
+      for (const img of images) {
         await client.query(
           `INSERT INTO product_images (product_id, image_url, alt_text, sort_order)
            VALUES ($1,$2,$3,$4)`,
-          [productId, img.image_url, img.alt_text || null, img.sort_order ?? i]
+          [productId, img.image_url, img.alt_text, img.sort_order]
         );
       }
     }
