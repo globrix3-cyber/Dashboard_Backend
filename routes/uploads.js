@@ -68,6 +68,9 @@ router.post('/signature', authenticate, sellersOnly, signatureLimiter, (req, res
       timestamp:       Math.round(Date.now() / 1000),
       transformation:  TRANSFORMATION,
     };
+    // iPhone HEIC/HEIF can't be decoded in most browsers, so have Cloudinary store a JPG instead.
+    const heic = req.body?.heic === true;
+    if (heic) params.transformation = `${TRANSFORMATION},f_jpg`;
     const signature = cloudinary.utils.api_sign_request(params, api_secret);
     logger.info(`Issued upload signature for user ${req.user.user_id}`);
     res.json({

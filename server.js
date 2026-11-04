@@ -122,7 +122,10 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 8000;
 
 initializeServer().then(() => {
-  server.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
+  server.listen(PORT, () => {
+    logger.info(`Server running on port ${PORT}`);
+    require('./services/imageCleanup').startImageCleanup();
+  });
 }).catch((err) => {
   logger.error('Server startup failed', { message: err.message, stack: err.stack });
   process.exit(1);
