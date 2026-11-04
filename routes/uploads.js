@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express    = require('express');
 const cloudinary = require('cloudinary').v2;
+const crypto     = require('crypto');
+const rateLimit  = require('express-rate-limit');
 
 const { authenticateToken: authenticate } = require('../middleware/auth');
 const logger = require('../utils/logger');
@@ -33,6 +35,15 @@ const isConfigured = () => {
   return Boolean(cloud_name && api_key && api_secret);
 };
 
+const signatureLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 120,
+  keyGenerator: (req) => `upload-sig:${req.user.user_id}`,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many uploads in a short time. Please wait a few minutes and try again.', code: 'RATE_LIMITED' },
+});
+
 function sellersOnly(req, res, next) {
   if (!['supplier', 'admin'].includes(req.user?.role)) {
     return res.status(403).json({ error: 'Only suppliers can upload product images', code: 'FORBIDDEN' });
@@ -42,15 +53,18 @@ function sellersOnly(req, res, next) {
 
 // POST /api/uploads/signature — the browser uploads straight to Cloudinary with these
 // signed params, so image bytes never pass through (or sit in the memory of) this server.
-router.post('/signature', authenticate, sellersOnly, (req, res, next) => {
+router.post('/signature', authenticate, sellersOnly, signatureLimiter, (req, res, next) => {
   if (!isConfigured()) {
     return res.status(503).json({ error: 'Image upload is not set up yet. Paste an image link instead.', code: 'UPLOADS_NOT_CONFIGURED' });
   }
   try {
     const { cloud_name, api_key, api_secret } = cloudinary.config();
+    // A fixed public_id with overwrite off means each signature can create at most one image.
     const params = {
       allowed_formats: ALLOWED_FORMATS,
       folder:          `globrixa/products/${req.user.user_id}`,
+      overwrite:       false,
+      public_id:       crypto.randomUUID(),
       timestamp:       Math.round(Date.now() / 1000),
       transformation:  TRANSFORMATION,
     };
@@ -66,6 +80,8 @@ router.post('/signature', authenticate, sellersOnly, (req, res, next) => {
         folder:          params.folder,
         allowed_formats: params.allowed_formats,
         transformation:  params.transformation,
+        public_id:       params.public_id,
+        overwrite:       'false',
       },
     });
   } catch (err) {
