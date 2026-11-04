@@ -1,4 +1,31 @@
 // server.js
+require('dotenv').config();
+
+// Sentry must initialise before express/http are required so it can instrument them.
+// Inert unless SENTRY_DSN is set. Default integrations capture uncaught exceptions
+// and unhandled rejections.
+const Sentry = require('@sentry/node');
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn:              process.env.SENTRY_DSN,
+    environment:      process.env.NODE_ENV || 'development',
+    tracesSampleRate: 0.1,
+    sendDefaultPii:   false,
+    beforeSend(event) {
+      if (event.request) {
+        delete event.request.data;
+        delete event.request.cookies;
+        if (event.request.headers) {
+          for (const h of Object.keys(event.request.headers)) {
+            if (/^(authorization|cookie|x-api-key)$/i.test(h)) delete event.request.headers[h];
+          }
+        }
+      }
+      return event;
+    },
+  });
+}
+
 const express      = require('express');
 const http         = require('http');
 const helmet       = require('helmet');
@@ -84,6 +111,9 @@ app.use(cookieParser());
 // Railway sits in front of the app; trust one proxy hop so rate limits see real client IPs.
 app.set('trust proxy', 1);
 app.use(express.json());
+// Uptime checks and crawlers: registered before the rate limiter.
+app.use('/health',      require('./routes/health'));
+app.use('/sitemap.xml', require('./routes/sitemap'));
 app.use(limiter);
 
 app.use((req, res, next) => {
@@ -122,6 +152,7 @@ app.use('/api/wishlist',      wishlistRoutes);
 app.use('/api/newsletter',    newsletterRoutes);
 
 // ==================== ERROR HANDLER ====================
+if (process.env.SENTRY_DSN) Sentry.setupExpressErrorHandler(app);
 app.use(errorHandler);
 
 // ==================== START ====================
