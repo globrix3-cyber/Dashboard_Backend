@@ -21,6 +21,8 @@ const messagesRoutes      = require('./routes/messages');
 const contractsRoutes     = require('./routes/contracts');
 const cartRoutes          = require('./routes/cart');
 const uploadsRoutes       = require('./routes/uploads');
+const wishlistRoutes      = require('./routes/wishlist');
+const newsletterRoutes    = require('./routes/newsletter');
 
 const limiter      = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/error');
@@ -79,6 +81,8 @@ app.use(cors({
   credentials: true,
 }));
 app.use(cookieParser());
+// Railway sits in front of the app; trust one proxy hop so rate limits see real client IPs.
+app.set('trust proxy', 1);
 app.use(express.json());
 app.use(limiter);
 
@@ -114,6 +118,8 @@ app.use('/api',               messagesRoutes);
 app.use('/api/contracts',     contractsRoutes);
 app.use('/api/cart',          cartRoutes);
 app.use('/api/uploads',       uploadsRoutes);
+app.use('/api/wishlist',      wishlistRoutes);
+app.use('/api/newsletter',    newsletterRoutes);
 
 // ==================== ERROR HANDLER ====================
 app.use(errorHandler);
