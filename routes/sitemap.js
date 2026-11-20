@@ -15,10 +15,10 @@ const STATIC_PAGES = [
   { path: '/',           changefreq: 'daily',   priority: '1.0' },
   { path: '/products',   changefreq: 'daily',   priority: '0.9' },
   { path: '/categories', changefreq: 'weekly',  priority: '0.8' },
-  { path: '/our-story',  changefreq: 'monthly', priority: '0.5' },
   { path: '/about',      changefreq: 'monthly', priority: '0.5' },
   { path: '/blog',       changefreq: 'weekly',  priority: '0.5' },
   { path: '/contact',    changefreq: 'monthly', priority: '0.4' },
+  { path: '/policies',   changefreq: 'monthly', priority: '0.3' },
 ];
 
 const escapeXml = (s) => String(s)
