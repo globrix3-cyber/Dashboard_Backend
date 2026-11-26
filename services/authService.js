@@ -41,6 +41,15 @@ async function sendVerificationOtp({ email }) {
 }
 
 async function register({ email, password, phone_number, preferred_language, role, name, full_name, company, onboarding_answers, otp }) {
+  // Supplier self-registration is paused (client: buyer accounts only for now). Checked first so a
+  // blocked request never consumes a verification code. Set SUPPLIER_SIGNUP_ENABLED=true to reopen;
+  // existing suppliers are unaffected.
+  if (role === 'supplier' && process.env.SUPPLIER_SIGNUP_ENABLED !== 'true') {
+    const err = new Error('Supplier sign-up is not open yet. Please contact support@globrixa.com.');
+    err.status = 403;
+    throw err;
+  }
+
   // Verify email OTP before touching the database
   const storedHash = await redis.get(verifyKey(email));
   if (!storedHash || storedHash !== hashToken(String(otp || ''))) {
