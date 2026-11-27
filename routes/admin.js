@@ -166,7 +166,7 @@ router.patch('/companies/:id/verify', authenticateToken, adminOnly, async (req, 
     );
     if (!company) return res.status(404).json({ error: 'Company not found', code: 'NOT_FOUND' });
 
-    req.io?.emit('kyc:updated', company);
+    req.io?.to(`company:${company.id}`).emit('kyc:updated', { id: company.id, verified_status: company.verified_status });
     res.json({ data: company, message: `Company ${status}` });
   } catch (err) { next(err); }
 });

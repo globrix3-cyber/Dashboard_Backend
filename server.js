@@ -141,9 +141,49 @@ app.use((req, res, next) => {
 });
 
 // ==================== SOCKET ====================
+// Every real-time connection must carry a valid access token; events are only ever sent to rooms
+// (a user, a company, a role, or a conversation the user belongs to), never broadcast to everyone.
+io.use(async (socket, next) => {
+  try {
+    const token = socket.handshake.auth?.token;
+    if (!token) return next(new Error('unauthorized'));
+    const payload = require('jsonwebtoken').verify(token, process.env.JWT_SECRET);
+    const pool = require('./config/db');
+    const { rows: [u] } = await pool.query(
+      `SELECT u.id, u.is_active, r.name AS role,
+              (SELECT cu.company_id FROM company_users cu WHERE cu.user_id = u.id LIMIT 1) AS company_id
+       FROM users u LEFT JOIN roles r ON r.id = u.role_id WHERE u.id = $1`,
+      [payload.user_id]
+    );
+    if (!u || u.is_active === false) return next(new Error('unauthorized'));
+    socket.data.user = { id: u.id, role: u.role, companyId: u.company_id };
+    next();
+  } catch {
+    next(new Error('unauthorized'));
+  }
+});
+
 io.on('connection', (socket) => {
-  logger.info(`Socket.IO client connected: ${socket.id}`);
-  socket.on('disconnect', () => logger.info(`Socket.IO client disconnected: ${socket.id}`));
+  const { id, role, companyId } = socket.data.user;
+  socket.join(`user:${id}`);
+  if (companyId) socket.join(`company:${companyId}`);
+  if (role) socket.join(`role:${role}`);
+
+  // Join a conversation's room only if the user's company is part of it (admins may watch any).
+  socket.on('conversation:join', async (conversationId, ack) => {
+    try {
+      const pool = require('./config/db');
+      const { rows: [cv] } = await pool.query(
+        `SELECT buyer_company_id, supplier_company_id FROM conversations WHERE id = $1`, [conversationId]
+      );
+      const allowed = cv && (role === 'admin' || cv.buyer_company_id === companyId || cv.supplier_company_id === companyId);
+      if (allowed) socket.join(`conv:${conversationId}`);
+      if (typeof ack === 'function') ack({ ok: !!allowed });
+    } catch {
+      if (typeof ack === 'function') ack({ ok: false });
+    }
+  });
+  socket.on('conversation:leave', (conversationId) => socket.leave(`conv:${conversationId}`));
 });
 
 // ==================== HEALTH ====================

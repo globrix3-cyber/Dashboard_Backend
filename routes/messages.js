@@ -14,6 +14,24 @@ async function requireCompany(userId) {
   return cu;
 }
 
+// The conversation if the caller's company is its buyer or supplier (admins may read any). Outsiders get 404,
+// so conversation ids can't be probed.
+async function loadConversationFor(req, { allowAdmin = false } = {}) {
+  const { rows: [cv] } = await pool.query(
+    `SELECT id, buyer_company_id, supplier_company_id, rfq_id FROM conversations WHERE id = $1`, [req.params.id]
+  );
+  const notFound = () => { const e = new Error('Conversation not found'); e.status = 404; e.code = 'NOT_FOUND'; return e; };
+  if (!cv) throw notFound();
+  if (allowAdmin && req.user.role === 'admin') return { cv, cu: null };
+  const cu = await CompanyUser.findByUserId(req.user.user_id);
+  if (!cu || (cu.company_id !== cv.buyer_company_id && cu.company_id !== cv.supplier_company_id)) throw notFound();
+  return { cv, cu };
+}
+
+const sendError = (res, next, err) => (err.status
+  ? res.status(err.status).json({ error: err.message, code: err.code || 'FORBIDDEN' })
+  : next(err));
+
 /* ── GET /api/conversations ─────────────────────────────────────────────────
    Returns all conversations for the current user's company, with last message
    preview and unread count.
@@ -130,7 +148,7 @@ router.post('/conversations', authenticateToken, async (req, res, next) => {
       [conversationId]
     );
 
-    req.io?.emit('conversation:new', { conversationId, buyerCo, supplierCo });
+    req.io?.to(`company:${buyerCo}`).to(`company:${supplierCo}`).emit('conversation:new', { conversationId });
     res.status(201).json({ data: cv });
   } catch (err) { next(err); }
 });
@@ -140,6 +158,7 @@ router.post('/conversations', authenticateToken, async (req, res, next) => {
 ────────────────────────────────────────────────────────────────────────────── */
 router.get('/conversations/:id', authenticateToken, async (req, res, next) => {
   try {
+    await loadConversationFor(req, { allowAdmin: true });
     const { rows: [cv] } = await pool.query(
       `SELECT cv.*, cb.legal_name AS buyer_name, cs.legal_name AS supplier_name,
          r.title AS rfq_title
@@ -179,7 +198,7 @@ router.get('/conversations/:id', authenticateToken, async (req, res, next) => {
     }
 
     res.json({ data: { ...cv, messages: msgs } });
-  } catch (err) { next(err); }
+  } catch (err) { sendError(res, next, err); }
 });
 
 /* ── POST /api/conversations/:id/messages ───────────────────────────────────
@@ -188,7 +207,7 @@ router.get('/conversations/:id', authenticateToken, async (req, res, next) => {
 ────────────────────────────────────────────────────────────────────────────── */
 router.post('/conversations/:id/messages', authenticateToken, async (req, res, next) => {
   try {
-    const cu = await requireCompany(req.user.user_id);
+    const { cu } = await loadConversationFor(req);
     const { body } = req.body;
     if (!body?.trim()) return res.status(400).json({ error: 'Message body is required', code: 'VALIDATION_ERROR' });
 
@@ -214,7 +233,7 @@ router.post('/conversations/:id/messages', authenticateToken, async (req, res, n
 
     req.io?.to(`conv:${req.params.id}`).emit('message:new', enriched);
     res.status(201).json({ data: enriched });
-  } catch (err) { next(err); }
+  } catch (err) { sendError(res, next, err); }
 });
 
 /* ── POST /api/conversations/:id/quote-offer ────────────────────────────────
@@ -226,7 +245,10 @@ router.post('/conversations/:id/quote-offer', authenticateToken, async (req, res
     return res.status(403).json({ error: 'Only suppliers can send quote offers', code: 'FORBIDDEN' });
   }
   try {
-    const cu = await requireCompany(req.user.user_id);
+    const { cv, cu } = await loadConversationFor(req);
+    if (cu.company_id !== cv.supplier_company_id) {
+      return res.status(403).json({ error: 'Only the supplier in this chat can send a quote offer', code: 'FORBIDDEN' });
+    }
     const { price, currency, quantity, lead_time_days, validity_days, notes } = req.body;
 
     if (!price) return res.status(400).json({ error: 'price is required', code: 'VALIDATION_ERROR' });
@@ -257,7 +279,7 @@ router.post('/conversations/:id/quote-offer', authenticateToken, async (req, res
 
     req.io?.to(`conv:${req.params.id}`).emit('message:new', msg);
     res.status(201).json({ data: msg });
-  } catch (err) { next(err); }
+  } catch (err) { sendError(res, next, err); }
 });
 
 /* ── PATCH /api/conversations/:id/quote-offer/:msgId/accept ─────────────────
@@ -267,53 +289,82 @@ router.patch('/conversations/:id/quote-offer/:msgId/accept', authenticateToken, 
   if (req.user.role !== 'buyer') {
     return res.status(403).json({ error: 'Only buyers can accept quote offers', code: 'FORBIDDEN' });
   }
+  let client;
   try {
-    const cu = await getCompany(req.user.user_id);
+    const { cv, cu } = await loadConversationFor(req);
+    if (cu.company_id !== cv.buyer_company_id) {
+      return res.status(403).json({ error: 'Only the buyer in this chat can accept the offer', code: 'FORBIDDEN' });
+    }
+    client = await pool.connect();
+    await client.query('BEGIN');
 
-    // Fetch the offer message
-    const { rows: [msg] } = await pool.query(
-      `SELECT * FROM messages WHERE id = $1 AND conversation_id = $2 AND message_type = 'quote_offer'`,
+    // Lock the offer so two clicks can't both create an order.
+    const { rows: [msg] } = await client.query(
+      `SELECT * FROM messages WHERE id = $1 AND conversation_id = $2 AND message_type = 'quote_offer' FOR UPDATE`,
       [req.params.msgId, req.params.id]
     );
-    if (!msg) return res.status(404).json({ error: 'Quote offer not found', code: 'NOT_FOUND' });
+    if (!msg) { await client.query('ROLLBACK'); return res.status(404).json({ error: 'Quote offer not found', code: 'NOT_FOUND' }); }
+
+    const { rows: accepted } = await client.query(
+      `SELECT 1 FROM messages WHERE conversation_id = $1 AND message_type = 'quote_accepted'
+         AND body::jsonb ->> 'offer_message_id' = $2 LIMIT 1`,
+      [req.params.id, req.params.msgId]
+    );
+    if (accepted.length) { await client.query('ROLLBACK'); return res.status(409).json({ error: 'This offer has already been accepted', code: 'ALREADY_EXISTS' }); }
 
     const offer = JSON.parse(msg.body);
+    const validDays = Number(offer.validity_days) || 7;
+    if (Date.now() > new Date(msg.created_at).getTime() + validDays * 86400000) {
+      await client.query('ROLLBACK');
+      return res.status(400).json({ error: 'This offer has expired', code: 'INVALID_STATE' });
+    }
+    const unitPrice = Number(offer.price);
+    const quantity  = Number(offer.quantity) > 0 ? Number(offer.quantity) : 1;
+    const total     = Math.round(unitPrice * quantity * 100) / 100;
+    const currency  = offer.currency || 'INR';
 
-    // Get supplier company from conversation
-    const { rows: [cv] } = await pool.query(
-      `SELECT buyer_company_id, supplier_company_id, rfq_id FROM conversations WHERE id = $1`,
-      [req.params.id]
-    );
+    let itemName = 'Quote offer';
+    if (cv.rfq_id) {
+      const { rows: [rfq] } = await client.query(`SELECT title FROM rfqs WHERE id = $1`, [cv.rfq_id]);
+      if (rfq?.title) itemName = rfq.title;
+    }
 
-    // Create order
     const orderNo = `GX-${Date.now().toString(36).toUpperCase()}`;
-    const { rows: [order] } = await pool.query(
+    const { rows: [order] } = await client.query(
       `INSERT INTO orders
          (buyer_company_id, supplier_company_id, rfq_id,
           order_number, order_value, currency, status)
        VALUES ($1, $2, $3, $4, $5, $6, 'confirmed')
-       RETURNING id, order_number, status`,
-      [cv.buyer_company_id, cv.supplier_company_id, cv.rfq_id || null,
-       orderNo, offer.price, offer.currency || 'INR']
+       RETURNING id, order_number, status, order_value, currency`,
+      [cv.buyer_company_id, cv.supplier_company_id, cv.rfq_id || null, orderNo, total, currency]
+    );
+    await client.query(
+      `INSERT INTO order_items (order_id, product_name, quantity, unit_price, total_price, currency)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [order.id, itemName, quantity, unitPrice, total, currency]
     );
 
-    // Post acceptance message in chat
-    await pool.query(
+    // Post acceptance message in chat (also marks the offer as accepted)
+    const { rows: [acceptMsg] } = await client.query(
       `INSERT INTO messages
          (conversation_id, sender_user_id, sender_company_id, body, message_type)
-       VALUES ($1, $2, $3, $4, 'quote_accepted')`,
+       VALUES ($1, $2, $3, $4, 'quote_accepted')
+       RETURNING *`,
       [req.params.id, req.user.user_id, cu.company_id,
-       JSON.stringify({ type: 'quote_accepted', order_id: order.id, order_number: order.order_number })]
+       JSON.stringify({ type: 'quote_accepted', offer_message_id: req.params.msgId, order_id: order.id, order_number: order.order_number })]
     );
+    await client.query(`UPDATE conversations SET last_message_at = now() WHERE id = $1`, [req.params.id]);
+    await client.query('COMMIT');
 
-    await pool.query(
-      `UPDATE conversations SET last_message_at = now() WHERE id = $1`,
-      [req.params.id]
-    );
-
-    req.io?.emit('order:new', order);
+    req.io?.to(`conv:${req.params.id}`).emit('message:new', acceptMsg);
+    req.io?.to(`company:${cv.supplier_company_id}`).emit('order:new', { orderId: order.id, orderNumber: order.order_number });
     res.json({ data: order, message: 'Quote accepted — order created!' });
-  } catch (err) { next(err); }
+  } catch (err) {
+    if (client) await client.query('ROLLBACK').catch(() => {});
+    sendError(res, next, err);
+  } finally {
+    client?.release();
+  }
 });
 
 module.exports = router;

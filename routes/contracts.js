@@ -156,7 +156,7 @@ router.post('/', authenticateToken, async (req, res, next) => {
 
     const result = { ...contract, buyer_name: buyer?.legal_name, supplier_name: supplier?.legal_name };
 
-    req.io?.emit('contract:new', { contractId: contract.id, supplierCompanyId: supplier_company_id });
+    req.io?.to(`company:${supplier_company_id}`).emit('contract:new', { contractId: contract.id });
     res.status(201).json({ data: result });
   } catch (err) {
     await client.query('ROLLBACK');
@@ -362,7 +362,8 @@ router.post('/:id/sign', authenticateToken, async (req, res, next) => {
 
     await client.query('COMMIT');
 
-    req.io?.emit('contract:signed', { contractId: req.params.id, status: newStatus });
+    req.io?.to(`company:${contract.buyer_company_id}`).to(`company:${contract.supplier_company_id}`)
+      .emit('contract:signed', { contractId: req.params.id, status: newStatus });
     res.json({ data: updated });
   } catch (err) {
     await client.query('ROLLBACK');
@@ -501,7 +502,8 @@ router.post('/:id/order', authenticateToken, async (req, res, next) => {
 
     await client.query('COMMIT');
 
-    req.io?.emit('order:new', { orderId: order.id, supplierCompanyId: contract.supplier_company_id });
+    req.io?.to(`company:${contract.supplier_company_id}`).to(`company:${contract.buyer_company_id}`)
+      .emit('order:new', { orderId: order.id });
     res.status(201).json({ data: { order, contractId: contract.id } });
   } catch (err) {
     await client.query('ROLLBACK');

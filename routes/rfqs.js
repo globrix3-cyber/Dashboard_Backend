@@ -125,7 +125,7 @@ router.post('/', authenticateToken, async (req, res, next) => {
     );
 
     const result = normalise({ ...rfq, category_name: category || null });
-    req.io?.emit('rfq:new', result);
+    req.io?.to('role:supplier').emit('rfq:new', { id: result.id, title: result.title });
     res.status(201).json({ data: result });
   } catch (err) { next(err); }
 });
@@ -200,7 +200,8 @@ router.post('/:id/quotes', authenticateToken, async (req, res, next) => {
        delivery || null, min_order_quantity || null, validity_days || 7, msg]
     );
 
-    req.io?.emit('quote:new', { rfqId: req.params.id, quote });
+    const { rows: [owner] } = await pool.query(`SELECT buyer_company_id FROM rfqs WHERE id = $1`, [req.params.id]);
+    if (owner) req.io?.to(`company:${owner.buyer_company_id}`).emit('quote:new', { rfqId: req.params.id, quoteId: quote.id });
     res.status(201).json({ data: quote });
   } catch (err) { next(err); }
 });

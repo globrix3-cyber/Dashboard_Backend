@@ -104,13 +104,14 @@ router.patch('/:id/status', authenticateToken, async (req, res, next) => {
     const { rows: [order] } = await pool.query(
       `UPDATE orders SET status = $1, updated_at = now()
        WHERE id = $2 AND supplier_company_id = $3
-       RETURNING id, order_number, status`,
+       RETURNING id, order_number, status, buyer_company_id, supplier_company_id`,
       [status, req.params.id, cu.company_id]
     );
     if (!order) return res.status(404).json({ error: 'Order not found or access denied', code: 'NOT_FOUND' });
 
-    req.io?.emit('order:statusUpdated', order);
-    res.json({ data: order });
+    const { buyer_company_id: buyerCo, supplier_company_id: supplierCo, ...publicOrder } = order;
+    req.io?.to(`company:${buyerCo}`).to(`company:${supplierCo}`).emit('order:statusUpdated', publicOrder);
+    res.json({ data: publicOrder });
   } catch (err) { next(err); }
 });
 
