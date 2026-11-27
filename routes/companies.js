@@ -99,7 +99,9 @@ router.patch('/:id', authenticateToken, async (req, res, next) => {
     if (!isMember) {
       return res.status(403).json({ error: 'Permission denied', code: 'PERM_DENIED' });
     }
-    const updated = await Company.update(req.params.id, req.body);
+    // Members edit their profile details; turning a company on/off is an admin action.
+    const { is_active, ...fields } = req.body || {};
+    const updated = await Company.update(req.params.id, fields);
     if (!updated) return res.status(400).json({ error: 'No valid fields to update', code: 'VALIDATION_ERROR' });
     res.json({ message: 'Company updated', data: updated });
   } catch (err) { next(err); }
