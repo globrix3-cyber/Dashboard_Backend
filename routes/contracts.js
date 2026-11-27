@@ -452,14 +452,16 @@ router.post('/:id/order', authenticateToken, async (req, res, next) => {
     // Insert order item from contract data
     if (contract.title || contract.product_description) {
       await client.query(
-        `INSERT INTO order_items (order_id, product_name, quantity, unit_price, total_price)
-         VALUES ($1, $2, $3, $4, $5)`,
+        `INSERT INTO order_items (order_id, product_name, quantity, unit, unit_price, total_price, currency)
+         VALUES ($1, $2, $3, $4, $5, $6, $7)`,
         [
           order.id,
           contract.title,
           contract.quantity || 1,
+          contract.quantity_unit || null,
           contract.unit_price || contract.total_value,
           contract.total_value,
+          contract.currency || 'INR',
         ]
       );
     }
