@@ -1,5 +1,25 @@
 const express     = require('express');
 const router      = express.Router();
+
+// rfqs.destination_country is CHAR(2): accept an ISO 3166 code ("IN") or an English country name ("India").
+const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+const COUNTRY_BY_NAME = (() => {
+  const map = {};
+  for (let a = 65; a <= 90; a++) for (let b = 65; b <= 90; b++) {
+    const code = String.fromCharCode(a, b);
+    let name;
+    try { name = regionNames.of(code); } catch { continue; }
+    if (name && name !== code) map[name.toLowerCase()] = code;
+  }
+  Object.assign(map, { usa: 'US', 'united states of america': 'US', uk: 'GB', 'great britain': 'GB', uae: 'AE' });
+  return map;
+})();
+function toCountryCode(value) {
+  if (!value) return null;
+  const v = String(value).trim();
+  if (/^[A-Za-z]{2}$/.test(v)) return v.toUpperCase();
+  return COUNTRY_BY_NAME[v.toLowerCase()] || null;
+}
 const pool        = require('../config/db');
 const CompanyUser = require('../models/companyUser');
 const { authenticateToken } = require('../middleware/auth');
@@ -69,6 +89,10 @@ router.post('/', authenticateToken, async (req, res, next) => {
   try {
     const cu = await requireCompany(req.user.user_id);
     const { title, product, category, quantity, unit, budget, deadline, description, destination } = req.body;
+    const destinationCode = toCountryCode(destination);
+    if (destination && !destinationCode) {
+      return res.status(400).json({ error: 'Please choose a valid destination country', code: 'VALIDATION_ERROR' });
+    }
 
     // Deadline is optional (client Canva p44 removed it from the buyer form); expiry_date is nullable.
     if (!title || !quantity) {
@@ -92,12 +116,12 @@ router.post('/', authenticateToken, async (req, res, next) => {
           destination_country, status)
        VALUES ($1,$2,$3,$4,$5,$6,
                $7::numeric, $8::date,
-               LEFT($9, 100), 'active')
+               $9, 'active')
        RETURNING *`,
       [cu.company_id, title, desc, category_id,
        quantity, unit || 'pieces',
        budget  || null, deadline || null,
-       destination || 'IN']
+       destinationCode || 'IN']
     );
 
     const result = normalise({ ...rfq, category_name: category || null });
