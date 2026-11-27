@@ -70,8 +70,9 @@ router.post('/', authenticateToken, async (req, res, next) => {
     const cu = await requireCompany(req.user.user_id);
     const { title, product, category, quantity, unit, budget, deadline, description, destination } = req.body;
 
-    if (!title || !quantity || !deadline) {
-      return res.status(400).json({ error: 'title, quantity and deadline are required', code: 'VALIDATION_ERROR' });
+    // Deadline is optional (client Canva p44 removed it from the buyer form); expiry_date is nullable.
+    if (!title || !quantity) {
+      return res.status(400).json({ error: 'title and quantity are required', code: 'VALIDATION_ERROR' });
     }
 
     // Resolve category_id from name string
@@ -95,7 +96,7 @@ router.post('/', authenticateToken, async (req, res, next) => {
        RETURNING *`,
       [cu.company_id, title, desc, category_id,
        quantity, unit || 'pieces',
-       budget  || null, deadline,
+       budget  || null, deadline || null,
        destination || 'IN']
     );
 
