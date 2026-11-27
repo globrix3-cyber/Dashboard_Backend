@@ -57,7 +57,7 @@ router.get('/', authenticateToken, async (req, res, next) => {
 
         cId ? pool.query(
           `SELECT COALESCE(ROUND(AVG(rating)::numeric, 1), 0) AS avg_rating
-           FROM reviews WHERE supplier_company_id = $1`, [cId]
+           FROM reviews WHERE reviewee_company_id = $1`, [cId]
         ).catch(() => ({ rows: [{ avg_rating: 0 }] }))
           : Promise.resolve({ rows: [{ avg_rating: 0 }] }),
       ]);

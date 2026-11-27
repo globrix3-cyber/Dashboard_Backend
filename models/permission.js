@@ -4,8 +4,9 @@ const pool = require('../config/db');
 class Permission {
   static async findByRole(role) {
     const { rows } = await pool.query(
-      `SELECT module, can_read, can_write, can_delete
-       FROM permissions WHERE role = $1 ORDER BY module`,
+      `SELECT p.module, p.can_read, p.can_write, p.can_delete
+       FROM permissions p JOIN roles r ON r.id = p.role_id
+       WHERE r.name = $1 ORDER BY p.module`,
       [role]
     );
     return rows;
@@ -13,9 +14,9 @@ class Permission {
 
   static async upsert({ role, module, can_read, can_write, can_delete }) {
     const { rows } = await pool.query(
-      `INSERT INTO permissions (role, module, can_read, can_write, can_delete)
-       VALUES ($1, $2, $3, $4, $5)
-       ON CONFLICT (role, module) DO UPDATE
+      `INSERT INTO permissions (role_id, module, can_read, can_write, can_delete)
+       VALUES ((SELECT id FROM roles WHERE name = $1), $2, $3, $4, $5)
+       ON CONFLICT (role_id, module) DO UPDATE
          SET can_read   = EXCLUDED.can_read,
              can_write  = EXCLUDED.can_write,
              can_delete = EXCLUDED.can_delete
@@ -27,15 +28,17 @@ class Permission {
 
   static async delete({ role, module }) {
     await pool.query(
-      `DELETE FROM permissions WHERE role = $1 AND module = $2`,
+      `DELETE FROM permissions
+       WHERE role_id = (SELECT id FROM roles WHERE name = $1) AND module = $2`,
       [role, module]
     );
   }
 
   static async listAll() {
     const { rows } = await pool.query(
-      `SELECT role, module, can_read, can_write, can_delete
-       FROM permissions ORDER BY role, module`
+      `SELECT r.name AS role, p.module, p.can_read, p.can_write, p.can_delete
+       FROM permissions p JOIN roles r ON r.id = p.role_id
+       ORDER BY r.name, p.module`
     );
     return rows;
   }

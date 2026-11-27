@@ -142,7 +142,7 @@ router.post('/', authenticateToken, async (req, res, next) => {
     );
     if (supplierUser) {
       await client.query(
-        `INSERT INTO notifications (user_id, type, subject, body)
+        `INSERT INTO notifications (user_id, type, title, body)
          VALUES ($1, 'contract_received', 'New Contract Awaiting Your Signature', $2)`,
         [supplierUser.user_id, `Buyer has sent contract "${title}" (${contractNumber}) for your review.`]
       );
@@ -349,7 +349,7 @@ router.post('/:id/sign', authenticateToken, async (req, res, next) => {
         ? `Contract "${contract.title}" (${contract.contract_number}) is now active — both parties have signed.`
         : `${notifyLabel} contract "${contract.title}" (${contract.contract_number}). Your signature is required.`;
       await client.query(
-        `INSERT INTO notifications (user_id, type, subject, body)
+        `INSERT INTO notifications (user_id, type, title, body)
          VALUES ($1, $2, $3, $4)`,
         [
           notifyUser.user_id,
@@ -452,7 +452,7 @@ router.post('/:id/order', authenticateToken, async (req, res, next) => {
     // Insert order item from contract data
     if (contract.title || contract.product_description) {
       await client.query(
-        `INSERT INTO order_items (order_id, product_name, quantity, unit_price, subtotal)
+        `INSERT INTO order_items (order_id, product_name, quantity, unit_price, total_price)
          VALUES ($1, $2, $3, $4, $5)`,
         [
           order.id,
@@ -491,7 +491,7 @@ router.post('/:id/order', authenticateToken, async (req, res, next) => {
     );
     if (supplierUser) {
       await client.query(
-        `INSERT INTO notifications (user_id, type, subject, body)
+        `INSERT INTO notifications (user_id, type, title, body)
          VALUES ($1, 'order_placed', 'New Order Placed', $2)`,
         [supplierUser.user_id, `A new order ${orderNum} has been placed from contract ${contract.contract_number}.`]
       );

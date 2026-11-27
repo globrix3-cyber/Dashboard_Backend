@@ -67,12 +67,12 @@ router.get('/conversations', authenticateToken, async (req, res, next) => {
 
 /* ── POST /api/conversations ────────────────────────────────────────────────
    Start a new conversation. Buyer → Supplier, optionally linked to an RFQ.
-   Body: { supplier_company_id, rfq_id?, subject?, initial_message }
+   Body: { supplier_company_id, rfq_id?, initial_message }
 ────────────────────────────────────────────────────────────────────────────── */
 router.post('/conversations', authenticateToken, async (req, res, next) => {
   try {
     const cu = await requireCompany(req.user.user_id);
-    const { supplier_company_id, rfq_id, subject, initial_message } = req.body;
+    const { supplier_company_id, rfq_id, initial_message } = req.body;
 
     if (!supplier_company_id) {
       return res.status(400).json({ error: 'supplier_company_id is required', code: 'VALIDATION_ERROR' });
@@ -98,10 +98,10 @@ router.post('/conversations', authenticateToken, async (req, res, next) => {
     } else {
       const { rows: [cv] } = await pool.query(
         `INSERT INTO conversations
-           (buyer_company_id, supplier_company_id, rfq_id, subject, status)
-         VALUES ($1, $2, $3, $4, 'active')
+           (buyer_company_id, supplier_company_id, rfq_id)
+         VALUES ($1, $2, $3)
          RETURNING *`,
-        [buyerCo, supplierCo, rfq_id || null, subject || null]
+        [buyerCo, supplierCo, rfq_id || null]
       );
       conversationId = cv.id;
     }
