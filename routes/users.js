@@ -17,7 +17,21 @@ router.get('/me', authenticateToken, async (req, res, next) => {
 // PATCH /api/users/me
 router.patch('/me', authenticateToken, async (req, res, next) => {
   try {
-    const updated = await User.update(req.user.user_id, req.body);
+    // People may change only their own profile details - never verification or account status.
+    const fields = {};
+    for (const key of ['full_name', 'phone_number', 'preferred_language', 'avatar_url']) {
+      if (req.body?.[key] === undefined) continue;
+      const v = typeof req.body[key] === 'string' ? req.body[key].trim() : req.body[key];
+      fields[key] = v === '' ? null : v;
+    }
+    if (fields.phone_number && !/^\+?[0-9 ()-]{7,20}$/.test(fields.phone_number)) {
+      return res.status(400).json({ error: 'Please enter a valid phone number', code: 'VALIDATION_ERROR' });
+    }
+    if (fields.phone_number) fields.phone_number = fields.phone_number.replace(/[ ()-]/g, '');
+    if (fields.full_name && fields.full_name.length > 120) {
+      return res.status(400).json({ error: 'Name is too long', code: 'VALIDATION_ERROR' });
+    }
+    const updated = await User.update(req.user.user_id, fields);
     if (!updated) return res.status(400).json({ error: 'No valid fields to update', code: 'VALIDATION_ERROR' });
     res.json({ message: 'Profile updated', data: updated });
   } catch (err) { next(err); }

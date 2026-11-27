@@ -49,7 +49,7 @@ class User {
     values.push(id);
 
     const { rows } = await pool.query(
-      `UPDATE users SET ${updates.join(', ')} WHERE id = $${idx} RETURNING id, email, phone_number, preferred_language, avatar_url, is_active, updated_at`,
+      `UPDATE users SET ${updates.join(', ')} WHERE id = $${idx} RETURNING id, email, full_name, phone_number, preferred_language, avatar_url, is_active, updated_at`,
       values
     );
     return rows[0] || null;
